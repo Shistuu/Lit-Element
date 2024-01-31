@@ -32,14 +32,9 @@ let RightBarElement = class RightBarElement extends LitElement {
       font-weight: 600;
       color: #37471f;
     }
-    .pill-tabs {
-      width: 300px;
-    }
 
     .content {
-      padding: 16px;
-      border: 1px solid #ccc;
-      margin-top: 16px;
+      padding: 10px;
     }
   `; }
     render() {
@@ -95,9 +90,8 @@ let RightBarElement = class RightBarElement extends LitElement {
 
           <div>
             <pill-tabs>
-              <pill-tab title="Following">
-                <mwc-icon>arrow_back</mwc-icon>
-                <div class="content"><following-tab /></div>
+              <pill-tab title="Following" active>
+                <!-- <mwc-icon>arrow_back</mwc-icon> -->
               </pill-tab>
               <pill-tab title="Popular">
                 <div class="content">Content for Tab 2</div>
@@ -106,6 +100,7 @@ let RightBarElement = class RightBarElement extends LitElement {
                 <div class="content">Content for Tab 3</div>
               </pill-tab>
             </pill-tabs>
+            <div class="content"><following-tab /></div>
           </div>
         </div>
       </div>
