@@ -1,3 +1,5 @@
+<img width="1280" alt="image" src="https://github.com/Shistuu/Lit-Element/assets/69161669/99d9bee1-2a29-4369-8b71-e1cfe42fd458">
+
 # LitElement TypeScript starter
 
 This project includes a sample component using LitElement with TypeScript.
