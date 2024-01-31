@@ -7,12 +7,9 @@ export class RightBarElement extends LitElement {
     .right-bar {
       background-color: yellow;
       height: 100vh;
-      margin-left: 27%;
-      width: 77%;
-      /* z-index: 1000; */
-      position: fixed;
       padding: 10px;
       margin-top: 45px;
+      width: 1415px;
     }
   `;
 

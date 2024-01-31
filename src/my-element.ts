@@ -10,21 +10,23 @@ export class MyElement extends LitElement {
   static override styles = css`
     :host {
       display: block;
+      margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
         'Noto Sans', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', sans-serif;
       font-size: 14px;
     }
 
-    .container {
+    .content {
       display: flex;
+      width: 100%;
     }
   `;
 
   override render() {
     return html`
-      <div>
+      <div class="container">
         <navbar-element></navbar-element>
-        <div class="container">
+        <div class="content">
           <left-bar-element></left-bar-element>
           <right-bar-element></right-bar-element>
         </div>

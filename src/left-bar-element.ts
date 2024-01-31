@@ -5,11 +5,13 @@ import {customElement} from 'lit/decorators.js';
 export class LeftBarElement extends LitElement {
   static override styles = css`
     .left-bar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 100px;
+      padding: 100px;
       z-index: 1;
+      /* background-color: red; */
+      height: 100vh;
+      width: 275px;
+      margin-left: -15px;
+      margin-top: 45px;
     }
 
     .tabs {
