@@ -3,20 +3,19 @@ import {customElement} from 'lit/decorators.js';
 
 @customElement('following-tab')
 export class FollowingTab extends LitElement {
-  static override styles = css`
-    /* .top-content {
-      display: flex;
-      flex-direction: column;
-    } */
+  static override readonly styles = css`
+    .top-content {
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #dad6d6;
+    }
     .paragraph {
       font-size: 16px;
       color: #646262;
     }
     .content {
-      border: 1px solid #dad6d6;
       border-radius: 4px;
       height: 200px;
-      padding: 20px;
       font-size: 20px;
     }
     .button {

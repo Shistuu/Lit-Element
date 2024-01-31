@@ -1,6 +1,6 @@
 import { LitElement } from 'lit';
 export declare class FollowingTab extends LitElement {
-    static styles: import("lit").CSSResult;
+    static readonly styles: import("lit").CSSResult;
     onClick(): void;
     protected render(): import("lit-html").TemplateResult<1>;
 }

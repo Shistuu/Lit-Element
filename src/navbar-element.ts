@@ -11,8 +11,10 @@ export class NavbarElement extends LitElement {
       justify-content: space-between;
       font-size: small;
       height: 57px;
-      z-index: 1;
       margin: -10px 0 0 -8px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .nav-item {

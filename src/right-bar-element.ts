@@ -5,6 +5,7 @@ import '@material/mwc-icon/mwc-icon.js';
 import './clickable-box';
 import './pill-tab';
 import './following-tab';
+import './custom-box';
 
 @customElement('right-bar-element')
 export class RightBarElement extends LitElement {
@@ -13,7 +14,6 @@ export class RightBarElement extends LitElement {
       flex: 1;
     }
     .right-bar {
-      background-color: yellow;
       height: 100vh;
       width: 75%;
     }
@@ -98,14 +98,51 @@ export class RightBarElement extends LitElement {
                 <div class="content">Content for Tab 3</div>
               </pill-tab>
             </pill-tabs>
-            <div class="content"><following-tab /></div>
+            <div>
+              <div class="content"><following-tab /></div>
+              <div>
+                <custom-box
+                  name="Anwesh Budathoki"
+                  edited
+                  timeAgo="5"
+                  documentTitle="Addition of team members to github"
+                  ownerName="Nihal Maskey"
+                  projectName="Vyaguta"
+                  contentText="This mail is to be sent by either Project Manager or Team lead of Vyaguta to IT department to provide access to our GitHub Organization."
+                  .reactions=${['🔥']}
+                ></custom-box>
+              </div>
+              <div>
+                <custom-box
+                  name="Jyoti Pokharel"
+                  edited
+                  timeAgo="7"
+                  documentTitle="Overview of Leave types and processes"
+                  ownerName="Sabnam Buddhacharya"
+                  projectName="Leapfrog"
+                  contentText="Leave is not a matter of right but merely a facility given by the company. In the event of necessity, the company may recall the employee on leave. No employees shall leave without getting prior approval from their direct supervisor at least two days in advance and approved in writing. Please follow the standard LEAVE APPLICATION PROCESS."
+                  .reactions=${['👍', '👏']}
+                ></custom-box>
+              </div>
+              <div>
+                <custom-box
+                  name="Dipankar Ratna Shakya"
+                  edited
+                  timeAgo="30 January 2024"
+                  documentTitle="Vyaguta Bug Report of January 2024 based on Bug Categories"
+                  ownerName="Dipankar Ratna Shakya"
+                  projectName="Vyaguta"
+                  contentText=""
+                  .reactions=${['🎉']}
+                ></custom-box>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     `;
   }
 }
-
 declare global {
   interface HTMLElementTagNameMap {
     'right-bar-element': RightBarElement;

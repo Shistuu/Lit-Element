@@ -8,19 +8,18 @@ import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 let FollowingTab = class FollowingTab extends LitElement {
     static { this.styles = css `
-    /* .top-content {
-      display: flex;
-      flex-direction: column;
-    } */
+    .top-content {
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #dad6d6;
+    }
     .paragraph {
       font-size: 16px;
       color: #646262;
     }
     .content {
-      border: 1px solid #dad6d6;
       border-radius: 4px;
       height: 200px;
-      padding: 20px;
       font-size: 20px;
     }
     .button {
