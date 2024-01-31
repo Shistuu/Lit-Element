@@ -7,15 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 let LeftBarElement = class LeftBarElement extends LitElement {
-    static styles = css `
+    static { this.styles = css `
     .left-bar {
-      padding: 100px;
       z-index: 1;
-      /* background-color: red; */
       height: 100vh;
-      width: 275px;
+      min-width: 260px;
       margin-left: -15px;
-      margin-top: 45px;
+      width: 25%;
     }
 
     .tabs {
@@ -59,7 +57,7 @@ let LeftBarElement = class LeftBarElement extends LitElement {
       background-color: lightgrey;
       border-radius: 4px;
     }
-  `;
+  `; }
     handleTabHover() {
         console.log('Tab hovered');
     }

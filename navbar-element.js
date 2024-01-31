@@ -7,18 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 let NavbarElement = class NavbarElement extends LitElement {
-    static styles = css `
+    static { this.styles = css `
     .navbar {
       background-color: #038e43;
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-size: small;
-      position: fixed;
       height: 57px;
       z-index: 1;
       margin: -10px 0 0 -8px;
-      width: 100%;
     }
 
     .nav-item {
@@ -73,7 +71,7 @@ let NavbarElement = class NavbarElement extends LitElement {
       background-color: grey;
       color: white;
     }
-  `;
+  `; }
     render() {
         return html `
       <div class="navbar">

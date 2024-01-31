@@ -1,4 +1,5 @@
 import { LitElement } from 'lit';
+import './clickable-box';
 export declare class RightBarElement extends LitElement {
     static styles: import("lit").CSSResult;
     render(): import("lit-html").TemplateResult<1>;

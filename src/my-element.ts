@@ -8,9 +8,15 @@ import './right-bar-element';
 @customElement('main-page')
 export class MyElement extends LitElement {
   static override styles = css`
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+    }
+
     :host {
       display: block;
-      margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
         'Noto Sans', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', sans-serif;
       font-size: 14px;
@@ -19,6 +25,7 @@ export class MyElement extends LitElement {
     .content {
       display: flex;
       width: 100%;
+      padding: 0 200px;
     }
   `;
 
