@@ -11,19 +11,21 @@ export class ClickableBox extends LitElement {
 
   @property({type: String})
   date: string;
-  declare foo: string;
+
   static override styles = css`
     .custom-box {
       display: flex;
-      padding: 26px;
-      border: 1px solid grey;
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px;
+      border: 1px solid lightgrey;
+      border-radius: 10px;
       background-color: white;
       box-shadow: var(
         --ds-shadow-raised,
         0px 1px 1px rgba(9, 30, 66, 0.25),
         0px 0px 1px rgba(9, 30, 66, 0.31)
       );
-      width: 13vw;
       cursor: pointer;
     }
     .box-top {
@@ -36,19 +38,17 @@ export class ClickableBox extends LitElement {
       flex-direction: column;
     }
     .custom-title {
-      color: #172b4d;
-      font-weight: bold;
+      color: #37471f;
+      font-weight: 600;
     }
 
     .custom-project {
-      color: var(--ds-text-subtle, #6b778c);
+      color: #6b778c;
       font-size: 12px;
     }
 
     .custom-date {
-      color: var(--ds-text-subtle, #6b778c);
-      /* margin-top: 8px;
-       */
+      color: #6b778c;
       font-size: 10px;
     }
   `;
@@ -63,7 +63,7 @@ export class ClickableBox extends LitElement {
     return html`
       <div class="custom-box" @click="${this.handleClick}">
         <div class="box-top">
-          <div class="custom-icon">
+          <div class="icon">
             <span aria-hidden="true" class="cc-1afrefi">
               <svg
                 width="24"
@@ -81,15 +81,15 @@ export class ClickableBox extends LitElement {
           </div>
           <div class="project-details">
             <div class="custom-title">${this.title}</div>
-            <div class="custom-project">${this.project}</
+            <div class="custom-project">${this.project}</div>
           </div>
         </div>
-        <div class="custom-date">Edited ${this.date}</div>
+        <div class="custom-date">${this.date}</div>
       </div>
     `;
   }
 
   private handleClick() {
-    alert(`Document: ${this.title} clicked`);
+    alert(`Document: ${this.title} clicked!`);
   }
 }
