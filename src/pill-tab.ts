@@ -3,10 +3,11 @@ import {customElement, property} from 'lit/decorators.js';
 
 @customElement('pill-tab')
 export class PillTab extends LitElement {
-  @property({type: String}) title: string;
+  @property({type: String}) override title = '';
+
   @property({type: Boolean, reflect: true}) active = false;
 
-  static override styles = css`
+  static override readonly styles = css`
     .pill-tab {
       display: flex;
       align-items: center;
@@ -54,7 +55,7 @@ export class PillTab extends LitElement {
 
     // Close other tabs when a new one is opened
     if (changedProperties.has('active') && this.active) {
-      const tabs = this.closest('pill-tabs');
+      const tabs = this.closest('pill-tabs') as PillTabs | null;
       if (tabs) {
         tabs.closeOtherTabs(this);
       }
@@ -71,7 +72,7 @@ export class PillTab extends LitElement {
 
 @customElement('pill-tabs')
 export class PillTabs extends LitElement {
-  static override styles = css`
+  static override readonly styles = css`
     :host {
       display: flex;
     }

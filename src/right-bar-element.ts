@@ -45,42 +45,42 @@ export class RightBarElement extends LitElement {
               title="Pulse Module Documentation"
               project="Vyaguta"
               date="Edited 29 January 2024"
-            />
+            ></clickable-box>
           </div>
           <div>
             <clickable-box
               title="Overview of Leave types and process"
               project="Leapfrog"
               date="Visited 24 January 2024"
-            />
+            ></clickable-box>
           </div>
           <div>
             <clickable-box
               title="Company Holiday (Nepal) || 2023/24"
               project="Leapfrog"
               date="Visited 24 January 2024"
-            />
+            ></clickable-box>
           </div>
           <div>
             <clickable-box
               title="Vyaguta Coding Guidelines"
               project="Vyaguta"
               date="Visited 24 January 2024"
-            />
+            ></clickable-box>
           </div>
           <div>
             <clickable-box
               title="2024-01-10 Sprint Review"
               project="Vyaguta"
               date="Visited 12 January 2024"
-            />
+            ></clickable-box>
           </div>
           <div>
             <clickable-box
               title="Project Off-boarding"
               project="Vyaguta"
               date="Visited 11 January 2024"
-            />
+            ></clickable-box>
           </div>
         </div>
         <div>

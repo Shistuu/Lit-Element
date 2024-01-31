@@ -3,16 +3,14 @@ import {customElement, property} from 'lit/decorators.js';
 
 @customElement('clickable-box')
 export class ClickableBox extends LitElement {
-  @property({type: String})
-  title: string;
+  @property({type: String}) override title = '';
 
-  @property({type: String})
-  project: string;
+  @property({type: String}) project = '';
 
   @property({type: String})
   date: string;
 
-  static override styles = css`
+  static override readonly styles = css`
     .custom-box {
       display: flex;
       flex-direction: column;

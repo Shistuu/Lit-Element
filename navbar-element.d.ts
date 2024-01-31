@@ -1,6 +1,13 @@
 import { LitElement } from 'lit';
+import '@material/mwc-icon/mwc-icon.js';
 export declare class NavbarElement extends LitElement {
     static styles: import("lit").CSSResult;
+    static properties: {
+        imageUrl: {
+            type: StringConstructor;
+        };
+    };
+    imageUrl: string;
     render(): import("lit-html").TemplateResult<1>;
     private handleCreateClick;
 }

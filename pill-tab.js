@@ -9,6 +9,7 @@ import { customElement, property } from 'lit/decorators.js';
 let PillTab = class PillTab extends LitElement {
     constructor() {
         super(...arguments);
+        this.title = '';
         this.active = false;
     }
     static { this.styles = css `

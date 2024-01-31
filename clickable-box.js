@@ -51,6 +51,8 @@ let ClickableBox = class ClickableBox extends LitElement {
         super();
         this.title = '';
         this.project = '';
+        this.title = '';
+        this.project = '';
         this.date = '';
     }
     render() {

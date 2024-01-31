@@ -5,9 +5,9 @@ import './navbar-element';
 import './left-bar-element';
 import './right-bar-element';
 
-@customElement('main-page')
+@customElement('my-element')
 export class MyElement extends LitElement {
-  static override styles = css`
+  static override readonly styles = css`
     *,
     *::before,
     *::after {
@@ -25,7 +25,6 @@ export class MyElement extends LitElement {
     .content {
       display: flex;
       width: 100%;
-      padding: 0 200px;
     }
   `;
 

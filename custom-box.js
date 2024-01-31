@@ -72,6 +72,7 @@ let CustomBox = class CustomBox extends LitElement {
   `; }
     constructor() {
         super();
+        this.reactions = [];
         this.name = '';
         this.edited = false;
         this.timeAgo = '';
@@ -146,9 +147,6 @@ __decorate([
 __decorate([
     property({ type: String })
 ], CustomBox.prototype, "contentText", void 0);
-__decorate([
-    property({ type: Array })
-], CustomBox.prototype, "emojis", void 0);
 __decorate([
     property({ type: Array })
 ], CustomBox.prototype, "reactions", void 0);

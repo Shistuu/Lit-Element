@@ -6,7 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import '@material/mwc-icon/mwc-icon.js';
 let LeftBarElement = class LeftBarElement extends LitElement {
+    constructor() {
+        super(...arguments);
+        this.imageUrl = '../dev/assets/global.jpg';
+    }
     static { this.styles = css `
     .left-bar {
       z-index: 1;
@@ -14,16 +19,19 @@ let LeftBarElement = class LeftBarElement extends LitElement {
       min-width: 260px;
       margin-left: -15px;
       width: 25%;
+      padding-left: 150px;
     }
 
     .tabs {
-      display: flex;
-      flex-direction: column;
+      padding-top: 32px;
     }
 
     .tab {
       padding: 8px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .tab:hover {
@@ -53,11 +61,24 @@ let LeftBarElement = class LeftBarElement extends LitElement {
       gap: 10px;
     }
 
+    .space-logo {
+      width: 20px;
+      height: 20px;
+      padding-right: 6px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
     .space-tab:hover {
       background-color: lightgrey;
       border-radius: 4px;
     }
   `; }
+    static { this.properties = {
+        imageUrl: { type: String },
+    }; }
     handleTabHover() {
         console.log('Tab hovered');
     }
@@ -65,17 +86,43 @@ let LeftBarElement = class LeftBarElement extends LitElement {
         return html `
       <div class="left-bar">
         <div class="tabs">
-          <div class="tab" @mouseover="${this.handleTabHover()}">Overview</div>
-          <div class="tab" @mouseover="${this.handleTabHover}">Recent</div>
-          <div class="tab" @mouseover="${this.handleTabHover}">Starred</div>
-          <div class="tab" @mouseover="${this.handleTabHover}">Drafts</div>
-          <div class="tab" @mouseover="${this.handleTabHover}">Tasks</div>
+          <div class="tab" @mouseover="${this.handleTabHover}">
+            <span><mwc-icon>home</mwc-icon></span>
+            <span>Overview</span>
+          </div>
+          <div class="tab" @mouseover="${this.handleTabHover}">
+            <span><mwc-icon>schedule</mwc-icon></span>
+            <span>Recent</span>
+          </div>
+          <div class="tab" @mouseover="${this.handleTabHover}">
+            <span><mwc-icon>star</mwc-icon></span>
+            <span>Starred</span>
+          </div>
+          <div class="tab" @mouseover="${this.handleTabHover}">
+            <span><mwc-icon>task</mwc-icon></span>
+            <span>Drafts</span>
+          </div>
+          <div class="tab" @mouseover="${this.handleTabHover}">
+            <span><mwc-icon>check_box</mwc-icon></span>
+            <span>Tasks</span>
+          </div>
         </div>
 
         <div class="space-category">
           <div class="space">SPACES</div>
-          <div class="tab" @mouseover="${this.handleTabHover}">Vyaguta</div>
-          <div class="tab" @mouseover="${this.handleTabHover}">Leapfrog</div>
+
+          <div class="tab" @mouseover="${this.handleTabHover}">
+            <div class="space-logo">
+              <img src=${this.imageUrl} alt="Leapfrog Logo" />
+            </div>
+            <span>Vyaguta</span>
+          </div>
+          <div class="tab" @mouseover="${this.handleTabHover}">
+            <div class="space-logo">
+              <img src=${this.imageUrl} alt="Leapfrog Logo" />
+            </div>
+            <span>Leapfrog</span>
+          </div>
         </div>
       </div>
     `;

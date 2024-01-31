@@ -1,6 +1,13 @@
 import { LitElement } from 'lit';
+import '@material/mwc-icon/mwc-icon.js';
 export declare class LeftBarElement extends LitElement {
-    static styles: import("lit").CSSResult;
+    static readonly styles: import("lit").CSSResult;
+    static properties: {
+        imageUrl: {
+            type: StringConstructor;
+        };
+    };
+    imageUrl: string;
     private handleTabHover;
     render(): import("lit-html").TemplateResult<1>;
 }
