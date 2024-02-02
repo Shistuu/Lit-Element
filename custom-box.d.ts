@@ -7,7 +7,7 @@ export declare class CustomBox extends LitElement {
     ownerName: string;
     projectName: string;
     contentText: string;
-    reactions: never[];
+    reactions: string[];
     static readonly styles: import("lit").CSSResult;
     constructor();
     protected render(): import("lit-html").TemplateResult<1>;

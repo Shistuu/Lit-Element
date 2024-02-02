@@ -55,7 +55,7 @@ export class PillTab extends LitElement {
 
     // Close other tabs when a new one is opened
     if (changedProperties.has('active') && this.active) {
-      const tabs = this.closest('pill-tabs') as PillTabs | null;
+      const tabs = this.closest('pill-tabs') as PillTabs;
       if (tabs) {
         tabs.closeOtherTabs(this);
       }

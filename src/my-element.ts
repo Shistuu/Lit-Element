@@ -8,23 +8,20 @@ import './right-bar-element';
 @customElement('my-element')
 export class MyElement extends LitElement {
   static override readonly styles = css`
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-    }
-
     :host {
-      display: block;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
         'Noto Sans', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', sans-serif;
       font-size: 14px;
+      margin: 0;
+      padding: 0;
     }
 
     .content {
       display: flex;
       width: 100%;
+    }
+    left-bar-element {
+      padding-left: 100px;
     }
   `;
 

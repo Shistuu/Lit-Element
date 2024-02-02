@@ -11,14 +11,12 @@ import './clickable-box';
 import './pill-tab';
 import './following-tab';
 import './custom-box';
+import { VYAGUTA, POPULAR, LEAPFROG, FOLLOWING, ANNOUNCEMENT, LEAVE_POLICY_TEXT, GITHUB_ACCESS_MAIL, PROJECT_OFF_BOARDING, SPRINT_REVIEW_2024_01_10, DISCOVER_WHATS_HAPPENING, VYAGUTA_CODING_GUIDELINES, PULSE_MODULE_DOCUMENTATION, PICK_UP_WHERE_YOU_LEFT_OFF, COMPANY_HOLIDAY_NEPAL_2023_24, VYAGUTA_BUG_REPORT_JANUARY_2024, ADDITION_OF_TEAM_MEMBERS_TO_GITHUB, OVERVIEW_OF_LEAVE_TYPES_AND_PROCESS, OVERVIEW_OF_LEAVE_TYPES_AND_PROCESSES, } from './constants/constants';
 let RightBarElement = class RightBarElement extends LitElement {
     static { this.styles = css `
-    :host {
-      flex: 1;
-    }
     .right-bar {
       height: 100vh;
-      width: 75%;
+      width: 80%;
     }
 
     .document-div {
@@ -27,6 +25,7 @@ let RightBarElement = class RightBarElement extends LitElement {
       grid-gap: 10px;
       padding: 10px;
     }
+
     .topic {
       padding: 40px 0 10px 16px;
       font-weight: 600;
@@ -40,107 +39,68 @@ let RightBarElement = class RightBarElement extends LitElement {
     render() {
         return html `
       <div class="right-bar">
-        <div class="topic">PICK UP WHERE YOU LEFT OFF</div>
+        ${this.renderTopic(PICK_UP_WHERE_YOU_LEFT_OFF)}
         <div class="document-div">
-          <div>
-            <clickable-box
-              title="Pulse Module Documentation"
-              project="Vyaguta"
-              date="Edited 29 January 2024"
-            ></clickable-box>
-          </div>
-          <div>
-            <clickable-box
-              title="Overview of Leave types and process"
-              project="Leapfrog"
-              date="Visited 24 January 2024"
-            ></clickable-box>
-          </div>
-          <div>
-            <clickable-box
-              title="Company Holiday (Nepal) || 2023/24"
-              project="Leapfrog"
-              date="Visited 24 January 2024"
-            ></clickable-box>
-          </div>
-          <div>
-            <clickable-box
-              title="Vyaguta Coding Guidelines"
-              project="Vyaguta"
-              date="Visited 24 January 2024"
-            ></clickable-box>
-          </div>
-          <div>
-            <clickable-box
-              title="2024-01-10 Sprint Review"
-              project="Vyaguta"
-              date="Visited 12 January 2024"
-            ></clickable-box>
-          </div>
-          <div>
-            <clickable-box
-              title="Project Off-boarding"
-              project="Vyaguta"
-              date="Visited 11 January 2024"
-            ></clickable-box>
-          </div>
+          ${this.renderClickableBox(PULSE_MODULE_DOCUMENTATION, VYAGUTA, 'Edited 29 January 2024')}
+          ${this.renderClickableBox(OVERVIEW_OF_LEAVE_TYPES_AND_PROCESS, LEAPFROG, 'Visited 24 January 2024')}
+          ${this.renderClickableBox(COMPANY_HOLIDAY_NEPAL_2023_24, LEAPFROG, 'Visited 24 January 2024')}
+          ${this.renderClickableBox(VYAGUTA_CODING_GUIDELINES, VYAGUTA, 'Visited 24 January 2024')}
+          ${this.renderClickableBox(SPRINT_REVIEW_2024_01_10, VYAGUTA, 'Visited 12 January 2024')}
+          ${this.renderClickableBox(PROJECT_OFF_BOARDING, VYAGUTA, 'Visited 11 January 2024')}
         </div>
+        ${this.renderDiscoverWhatsHappening()}
+      </div>
+    `;
+    }
+    renderTopic(topic) {
+        return html ` <div class="topic">${topic}</div> `;
+    }
+    renderClickableBox(title, project, date) {
+        return html `
+      <div>
+        <clickable-box
+          title=${title}
+          project=${project}
+          date=${date}
+        ></clickable-box>
+      </div>
+    `;
+    }
+    renderDiscoverWhatsHappening() {
+        return html `
+      <div>
+        ${this.renderTopic(DISCOVER_WHATS_HAPPENING)}
         <div>
-          <div class="topic">DISCOVER WHAT'S HAPPENING</div>
-
+          <pill-tabs>
+            ${this.renderPillTab(FOLLOWING, true)}
+            ${this.renderPillTab(POPULAR)} ${this.renderPillTab(ANNOUNCEMENT)}
+          </pill-tabs>
           <div>
-            <pill-tabs>
-              <pill-tab title="Following" active>
-                <!-- <mwc-icon>arrow_back</mwc-icon> -->
-              </pill-tab>
-              <pill-tab title="Popular">
-                <div class="content">Content for Tab 2</div>
-              </pill-tab>
-              <pill-tab title="Announcement">
-                <div class="content">Content for Tab 3</div>
-              </pill-tab>
-            </pill-tabs>
-            <div>
-              <div class="content"><following-tab /></div>
-              <div>
-                <custom-box
-                  name="Anwesh Budathoki"
-                  edited
-                  timeAgo="5"
-                  documentTitle="Addition of team members to github"
-                  ownerName="Nihal Maskey"
-                  projectName="Vyaguta"
-                  contentText="This mail is to be sent by either Project Manager or Team lead of Vyaguta to IT department to provide access to our GitHub Organization."
-                  .reactions=${['🔥']}
-                ></custom-box>
-              </div>
-              <div>
-                <custom-box
-                  name="Jyoti Pokharel"
-                  edited
-                  timeAgo="7"
-                  documentTitle="Overview of Leave types and processes"
-                  ownerName="Sabnam Buddhacharya"
-                  projectName="Leapfrog"
-                  contentText="Leave is not a matter of right but merely a facility given by the company. In the event of necessity, the company may recall the employee on leave. No employees shall leave without getting prior approval from their direct supervisor at least two days in advance and approved in writing. Please follow the standard LEAVE APPLICATION PROCESS."
-                  .reactions=${['👍', '👏']}
-                ></custom-box>
-              </div>
-              <div>
-                <custom-box
-                  name="Dipankar Ratna Shakya"
-                  edited
-                  timeAgo="30 January 2024"
-                  documentTitle="Vyaguta Bug Report of January 2024 based on Bug Categories"
-                  ownerName="Dipankar Ratna Shakya"
-                  projectName="Vyaguta"
-                  contentText=""
-                  .reactions=${['🎉']}
-                ></custom-box>
-              </div>
-            </div>
+            <div class="content"><following-tab /></div>
+            ${this.renderCustomBox('Anwesh Budathoki', true, '5', ADDITION_OF_TEAM_MEMBERS_TO_GITHUB, 'Nihal Maskey', VYAGUTA, GITHUB_ACCESS_MAIL, ['🔥'])}
+            ${this.renderCustomBox('Jyoti Pokharel', true, '7', OVERVIEW_OF_LEAVE_TYPES_AND_PROCESSES, 'Sabnam Buddhacharya', LEAPFROG, LEAVE_POLICY_TEXT, ['👍', '👏'])}
+            ${this.renderCustomBox('Dipankar Ratna Shakya', true, '30 January 2024', VYAGUTA_BUG_REPORT_JANUARY_2024, 'Dipankar Ratna Shakya', VYAGUTA, '', ['🎉'])}
           </div>
         </div>
+      </div>
+    `;
+    }
+    renderPillTab(title, active) {
+        return html ` <pill-tab title=${title} ?active=${active}></pill-tab> `;
+    }
+    renderCustomBox(name, edited, timeAgo, documentTitle, ownerName, projectName, contentText, reactions) {
+        return html `
+      <div>
+        <custom-box
+          name=${name}
+          .edited=${edited}
+          timeAgo=${timeAgo}
+          documentTitle=${documentTitle}
+          ownerName=${ownerName}
+          projectName=${projectName}
+          contentText=${contentText}
+          .reactions=${reactions}
+        ></custom-box>
       </div>
     `;
     }

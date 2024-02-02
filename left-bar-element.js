@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '@material/mwc-icon/mwc-icon.js';
+import { TASKS, DRAFTS, RECENT, SPACES, VYAGUTA, STARRED, LEAPFROG, OVERVIEW, LEAPFROG_LOGO, } from './constants/constants';
 let LeftBarElement = class LeftBarElement extends LitElement {
     constructor() {
         super(...arguments);
@@ -27,7 +28,7 @@ let LeftBarElement = class LeftBarElement extends LitElement {
     }
 
     .tab {
-      padding: 8px;
+      padding: 5px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -86,44 +87,35 @@ let LeftBarElement = class LeftBarElement extends LitElement {
         return html `
       <div class="left-bar">
         <div class="tabs">
-          <div class="tab" @mouseover="${this.handleTabHover}">
-            <span><mwc-icon>home</mwc-icon></span>
-            <span>Overview</span>
-          </div>
-          <div class="tab" @mouseover="${this.handleTabHover}">
-            <span><mwc-icon>schedule</mwc-icon></span>
-            <span>Recent</span>
-          </div>
-          <div class="tab" @mouseover="${this.handleTabHover}">
-            <span><mwc-icon>star</mwc-icon></span>
-            <span>Starred</span>
-          </div>
-          <div class="tab" @mouseover="${this.handleTabHover}">
-            <span><mwc-icon>task</mwc-icon></span>
-            <span>Drafts</span>
-          </div>
-          <div class="tab" @mouseover="${this.handleTabHover}">
-            <span><mwc-icon>check_box</mwc-icon></span>
-            <span>Tasks</span>
-          </div>
+          ${this.renderTab('home', OVERVIEW)}
+          ${this.renderTab('schedule', RECENT)}
+          ${this.renderTab('star', STARRED)} ${this.renderTab('task', DRAFTS)}
+          ${this.renderTab('check_box', TASKS)}
         </div>
 
         <div class="space-category">
-          <div class="space">SPACES</div>
+          <div class="space">${SPACES}</div>
 
-          <div class="tab" @mouseover="${this.handleTabHover}">
-            <div class="space-logo">
-              <img src=${this.imageUrl} alt="Leapfrog Logo" />
-            </div>
-            <span>Vyaguta</span>
-          </div>
-          <div class="tab" @mouseover="${this.handleTabHover}">
-            <div class="space-logo">
-              <img src=${this.imageUrl} alt="Leapfrog Logo" />
-            </div>
-            <span>Leapfrog</span>
-          </div>
+          ${this.renderSpaceTab(VYAGUTA)} ${this.renderSpaceTab(LEAPFROG)}
         </div>
+      </div>
+    `;
+    }
+    renderTab(icon, text) {
+        return html `
+      <div class="tab" @mouseover="${this.handleTabHover}">
+        <span><mwc-icon>${icon}</mwc-icon></span>
+        <span>${text}</span>
+      </div>
+    `;
+    }
+    renderSpaceTab(spaceName) {
+        return html `
+      <div class="tab" @mouseover="${this.handleTabHover}">
+        <div class="space-logo">
+          <img src=${this.imageUrl} alt=${LEAPFROG_LOGO} />
+        </div>
+        <span>${spaceName}</span>
       </div>
     `;
     }

@@ -7,6 +7,11 @@ import './custom-box';
 export declare class RightBarElement extends LitElement {
     static styles: import("lit").CSSResult;
     render(): import("lit-html").TemplateResult<1>;
+    private renderTopic;
+    private renderClickableBox;
+    private renderDiscoverWhatsHappening;
+    private renderPillTab;
+    private renderCustomBox;
 }
 declare global {
     interface HTMLElementTagNameMap {

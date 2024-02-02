@@ -24,7 +24,7 @@ export class CustomBox extends LitElement {
   @property({type: String})
   contentText: string;
 
-  @property({type: Array}) reactions = [];
+  @property({type: Array}) reactions: string[] = [];
 
   static override readonly styles = css`
     .box {

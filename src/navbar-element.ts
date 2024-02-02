@@ -4,7 +4,7 @@ import '@material/mwc-icon/mwc-icon.js';
 
 @customElement('navbar-element')
 export class NavbarElement extends LitElement {
-  static override styles = css`
+  static override readonly styles = css`
     .navbar {
       background-color: #038e43;
       display: flex;

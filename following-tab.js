@@ -6,50 +6,78 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import '@material/mwc-icon/mwc-icon';
+import { LOOP_TOPIC, LEAPFROG_LOGO, EDIT_FEED_TEXT, LOOP_PARAGRAPH, } from './constants/constants';
 let FollowingTab = class FollowingTab extends LitElement {
+    constructor() {
+        super(...arguments);
+        this.imageUrl = '../dev/assets/net.jpg';
+    }
     static { this.styles = css `
     .top-content {
       border-radius: 10px;
-      padding: 20px;
+      padding: 0 0px 15px 20px;
       border: 1px solid #dad6d6;
     }
-    .paragraph {
-      font-size: 16px;
-      color: #646262;
+    .icon {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 10px 0 0;
+      height: 5px;
+      cursor: pointer;
     }
-    .content {
-      border-radius: 4px;
-      height: 200px;
-      font-size: 20px;
-    }
+
     .button {
       cursor: pointer;
-      height: 35px;
       border: 1px solid #dad6d6;
       border-radius: 4px;
-      width: 80px;
-      margin-top: 30px;
+      padding: 10px;
+      margin-top: 10px;
       font-weight: bold;
       color: #575353;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      border-radius: 4px;
+      font-size: 18px;
+
+      img {
+        display: flex;
+        height: 156px;
+        width: 156px;
+        margin-right: 50px;
+      }
+    }
+
+    .paragraph {
+      font-size: 13px;
     }
   `; }
     onClick() {
         alert('Button clicked!');
     }
+    static { this.properties = {
+        imageUrl: { type: String },
+    }; }
     render() {
         return html `
       <div class="top-content">
+        <mwc-icon class="icon">close</mwc-icon>
         <div class="content">
           <div>
-            <div></div>
-            <p class="topic">We're keeping you in the loop</p>
-            <p class="paragraph">
-              Stay in-the-know by following people and spaces. Their activity
-              will show up in your feed, but you won't receive email
-              notifications about it. Add to, or edit, your feed anytime.
-            </p>
+            <div>
+              ${LOOP_TOPIC}
+              <p class="paragraph">${LOOP_PARAGRAPH}</p>
+            </div>
+            <button class="button" @click="${this.onClick}">
+              ${EDIT_FEED_TEXT}
+            </button>
           </div>
-          <button class="button" onclick="${this.onClick}">Edit feed</button>
+          <div>
+            <img src=${this.imageUrl} alt=${LEAPFROG_LOGO} />
+          </div>
         </div>
       </div>
     `;
